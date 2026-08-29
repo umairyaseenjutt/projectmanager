@@ -3,816 +3,1054 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Muhammad Umair - Project Manager | Digital Project Delivery</title>
+<title>Muhammad Umair — International Project Manager</title>
 <style>
-  :root {
-    --primary: #0f172a;
-    --accent: #2563eb;
-    --accent-light: #38bdf8;
-    --text-main: #1e293b;
-    --text-muted: #64748b;
-    --bg-light: #f8fafc;
-    --card-border: #e2e8f0;
-    --pill-bg: #e0f2fe;
-    --pill-text: #0369a1;
-  }
+/* ════════════════════════════════════════════
+   DESIGN TOKENS
+════════════════════════════════════════════ */
+:root {
+  --ink:          #0B1728;
+  --ink-mid:      #142035;
+  --ink-soft:     #1C2E4A;
+  --cyan:         #00C2CB;
+  --cyan-dim:     #7DE8ED;
+  --cyan-pale:    #E0F9FA;
+  --teal:         #0E9E99;
+  --gold:         #F59E0B;
+  --gold-pale:    #FEF3C7;
+  --green:        #10B981;
+  --green-pale:   #D1FAE5;
+  --text-dark:    #0B1728;
+  --text-body:    #1E293B;
+  --text-mid:     #334155;
+  --text-muted:   #64748B;
+  --text-light:   #94A3B8;
+  --bg-page:      #EEF2F8;
+  --bg-white:     #FFFFFF;
+  --bg-soft:      #F7FAFD;
+  --bg-cyan:      #E0F9FA;
+  --border:       #DDE5EF;
+  --border-mid:   #C9D5E3;
+  --pill-bg:      #E0F9FA;
+  --pill-text:    #0B7B80;
+  --r-sm:         6px;
+  --r-md:         10px;
+  --r-lg:         14px;
+  --r-xl:         18px;
+  --sh-xs:        0 1px 3px rgba(11,23,40,0.06);
+  --sh-sm:        0 2px 8px rgba(11,23,40,0.08);
+  --sh-md:        0 6px 20px rgba(11,23,40,0.10);
+  --sh-lg:        0 12px 40px rgba(11,23,40,0.13);
+}
 
-  * {
-    box-sizing: border-box;
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
-  }
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
 
-  body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    min-height: 100vh;
-    background-color: #f1f5f9;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    color: var(--text-main);
-    font-size: 9.1pt;
-    line-height: 1.44;
-  }
+body {
+  background: linear-gradient(145deg, #D8E5F5 0%, #EEF2F8 45%, #E3EEF7 100%);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Inter", Roboto, Arial, sans-serif;
+  color: var(--text-body);
+  font-size: 9.4pt;
+  line-height: 1.46;
+  min-height: 100vh;
+}
 
-  .cv-wrapper {
-    width: 100%;
-    max-width: 1440px;
-    margin: 0 auto;
-    padding: 20px 28px;
-  }
+/* ════════════════════════════════════════════
+   OUTER WRAP
+════════════════════════════════════════════ */
+.cv-wrap {
+  width: 100%;
+  max-width: 1340px;
+  margin: 0 auto;
+  padding: 18px 24px 30px;
+}
 
-  .cv-card {
-    background-color: #ffffff;
-    border-radius: 12px;
-    padding: 26px 34px;
-    box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
-  }
+/* ════════════════════════════════════════════
+   ACTION BAR
+════════════════════════════════════════════ */
+.action-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(135deg, var(--ink) 0%, var(--ink-soft) 100%);
+  border-radius: var(--r-md);
+  padding: 10px 18px;
+  margin-bottom: 16px;
+  gap: 12px;
+  flex-wrap: wrap;
+  box-shadow: var(--sh-md);
+}
+.bar-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+}
+.bar-link {
+  color: var(--cyan-dim);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 8.4pt;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  letter-spacing: 0.1px;
+  transition: color 0.15s;
+}
+.bar-link:hover { color: #fff; }
+.bar-sep {
+  width: 1px;
+  height: 14px;
+  background: rgba(255,255,255,0.15);
+  display: inline-block;
+}
+.pdf-btn {
+  background: linear-gradient(135deg, var(--cyan) 0%, var(--teal) 100%);
+  color: #fff;
+  border: none;
+  font-weight: 700;
+  font-size: 8.6pt;
+  padding: 7px 16px;
+  border-radius: var(--r-sm);
+  cursor: pointer;
+  letter-spacing: 0.2px;
+  box-shadow: 0 3px 12px rgba(0,194,203,0.35);
+  transition: opacity 0.15s, transform 0.15s;
+}
+.pdf-btn:hover { opacity: 0.9; transform: translateY(-1px); }
 
-  /* ON-SCREEN ACTION BAR */
+/* ════════════════════════════════════════════
+   MAIN CARD
+════════════════════════════════════════════ */
+.cv-card {
+  background: var(--bg-white);
+  border-radius: var(--r-xl);
+  padding: 26px 30px 30px;
+  box-shadow: var(--sh-lg);
+}
+
+/* ════════════════════════════════════════════
+   HEADER BLOCK
+════════════════════════════════════════════ */
+.header-block {
+  background: linear-gradient(130deg, var(--ink) 0%, var(--ink-mid) 55%, var(--ink-soft) 100%);
+  border-radius: var(--r-lg);
+  padding: 24px 28px 22px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  position: relative;
+  overflow: hidden;
+}
+/* Decorative glow orbs */
+.header-block::before {
+  content: '';
+  position: absolute;
+  top: -50px; right: -50px;
+  width: 210px; height: 210px;
+  background: radial-gradient(circle, rgba(0,194,203,0.18) 0%, transparent 68%);
+  pointer-events: none;
+}
+.header-block::after {
+  content: '';
+  position: absolute;
+  bottom: -60px; left: 38%;
+  width: 180px; height: 180px;
+  background: radial-gradient(circle, rgba(14,158,153,0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+.photo-wrap { flex-shrink: 0; position: relative; z-index: 1; }
+.profile-photo {
+  width: 98px; height: 98px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--cyan);
+  display: block;
+  background: var(--ink-soft);
+  box-shadow: 0 0 0 5px rgba(0,194,203,0.18), 0 8px 24px rgba(0,0,0,0.3);
+}
+.header-info { flex-grow: 1; min-width: 0; position: relative; z-index: 1; }
+.name {
+  font-size: 23pt;
+  font-weight: 900;
+  color: #FFFFFF;
+  letter-spacing: -0.6px;
+  text-transform: uppercase;
+  line-height: 1.08;
+  margin-bottom: 5px;
+}
+.title-line {
+  font-size: 9.8pt;
+  font-weight: 700;
+  color: var(--cyan);
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  margin-bottom: 13px;
+}
+.contact-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5px 14px;
+  font-size: 8.2pt;
+}
+.c-item {}
+.c-label {
+  display: block;
+  color: var(--cyan-dim);
+  font-weight: 700;
+  font-size: 7.2pt;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  margin-bottom: 1px;
+}
+.c-val { color: #CBD5E1; }
+.c-val a { color: #CBD5E1; text-decoration: none; transition: color 0.15s; }
+.c-val a:hover { color: var(--cyan); text-decoration: underline; }
+
+.port-strip {
+  margin-top: 11px;
+  padding-top: 9px;
+  border-top: 1px solid rgba(148,163,184,0.18);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+  font-size: 8pt;
+  position: relative; z-index: 1;
+}
+.port-lbl {
+  color: #7C90A8;
+  font-weight: 700;
+  font-size: 7.4pt;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+.port-strip a {
+  color: var(--cyan-dim);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.15s;
+}
+.port-strip a:hover { color: #FFFFFF; text-decoration: underline; }
+
+/* ════════════════════════════════════════════
+   SECTION TITLES
+════════════════════════════════════════════ */
+.sec-hd {
+  font-size: 9.4pt;
+  font-weight: 800;
+  color: var(--ink);
+  text-transform: uppercase;
+  letter-spacing: 0.9px;
+  margin: 18px 0 10px 0;
+  padding-bottom: 6px;
+  border-bottom: 2px solid var(--cyan);
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.sec-hd .ico { font-size: 10pt; }
+
+/* ════════════════════════════════════════════
+   SUMMARY
+════════════════════════════════════════════ */
+.summary-block {
+  background: linear-gradient(135deg, #F0FAFA 0%, var(--bg-soft) 100%);
+  border-left: 4.5px solid var(--cyan);
+  border-top: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  border-radius: 0 var(--r-md) var(--r-md) 0;
+  padding: 12px 17px;
+  font-size: 9.1pt;
+  color: var(--text-mid);
+  line-height: 1.52;
+  margin-bottom: 4px;
+}
+.summary-block strong { color: var(--ink); }
+.summary-block a { color: var(--teal); font-weight: 700; text-decoration: none; }
+.summary-block a:hover { text-decoration: underline; }
+
+/* ════════════════════════════════════════════
+   STATS STRIP
+════════════════════════════════════════════ */
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 11px;
+  margin: 14px 0 12px;
+}
+.stat-card {
+  background: linear-gradient(135deg, var(--ink) 0%, var(--ink-mid) 100%);
+  border-radius: var(--r-md);
+  padding: 14px 16px 13px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: -18px; right: -18px;
+  width: 72px; height: 72px;
+  background: radial-gradient(circle, rgba(0,194,203,0.22) 0%, transparent 70%);
+  pointer-events: none;
+}
+.stat-num {
+  display: block;
+  font-size: 20pt;
+  font-weight: 900;
+  color: var(--cyan);
+  line-height: 1;
+  letter-spacing: -0.5px;
+}
+.stat-lbl {
+  display: block;
+  font-size: 7.8pt;
+  font-weight: 700;
+  color: #8FAAB8;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 4px;
+}
+.stat-sub {
+  display: block;
+  font-size: 7.2pt;
+  color: var(--cyan-dim);
+  margin-top: 2px;
+  font-weight: 600;
+}
+
+/* ════════════════════════════════════════════
+   COUNTRY FLAGS
+════════════════════════════════════════════ */
+.flags-block {
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  padding: 13px 18px;
+  margin-bottom: 14px;
+}
+.flags-hd {
+  font-size: 7.8pt;
+  font-weight: 800;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.flags-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  align-items: center;
+}
+.flag-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: var(--bg-white);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 3px 10px 3px 6px;
+  box-shadow: var(--sh-xs);
+  transition: border-color 0.15s, box-shadow 0.15s;
+  white-space: nowrap;
+}
+.flag-pill:hover {
+  border-color: var(--cyan);
+  box-shadow: 0 2px 8px rgba(0,194,203,0.15);
+}
+.flag-emoji {
+  font-size: 15pt;
+  line-height: 1;
+  display: block;
+}
+.flag-name {
+  font-size: 7.8pt;
+  font-weight: 700;
+  color: var(--text-mid);
+}
+.flag-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: linear-gradient(135deg, var(--cyan-pale) 0%, #D0F4F5 100%);
+  border: 1px solid var(--cyan);
+  border-radius: 20px;
+  padding: 3px 12px;
+  font-size: 7.8pt;
+  font-weight: 800;
+  color: var(--teal);
+}
+
+/* ════════════════════════════════════════════
+   SKILLS GRID
+════════════════════════════════════════════ */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 11px;
+  margin-bottom: 14px;
+}
+.skill-cell {
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--cyan);
+  border-radius: 0 0 var(--r-md) var(--r-md);
+  padding: 12px 14px;
+}
+.skill-hd {
+  font-size: 8pt;
+  font-weight: 800;
+  color: var(--ink);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding-bottom: 6px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid var(--border-mid);
+}
+.pill {
+  display: inline-block;
+  background: var(--pill-bg);
+  color: var(--pill-text);
+  font-size: 7.4pt;
+  font-weight: 700;
+  padding: 2.5px 7px;
+  border-radius: 4px;
+  margin: 0 3px 4px 0;
+  border: 1px solid rgba(0,194,203,0.18);
+}
+
+/* ════════════════════════════════════════════
+   EXPERIENCE
+════════════════════════════════════════════ */
+.exp-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+.job-card {
+  background: var(--bg-white);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--border-mid);
+  border-radius: var(--r-md);
+  padding: 12px 16px;
+  transition: border-left-color 0.2s, box-shadow 0.2s;
+}
+.job-card:hover {
+  border-left-color: var(--cyan);
+  box-shadow: var(--sh-md);
+}
+.job-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-bottom: 2px;
+}
+.job-role {
+  font-size: 9.6pt;
+  font-weight: 800;
+  color: var(--ink);
+}
+.job-dates {
+  font-size: 7.8pt;
+  font-weight: 700;
+  color: var(--teal);
+  background: var(--cyan-pale);
+  border: 1px solid rgba(0,194,203,0.2);
+  padding: 2px 9px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+.job-org {
+  font-size: 8.4pt;
+  color: var(--text-muted);
+  font-weight: 600;
+  margin-bottom: 7px;
+}
+.job-org a { color: var(--teal); text-decoration: none; font-weight: 700; }
+.job-org a:hover { text-decoration: underline; }
+.job-org .loc-badge {
+  display: inline-block;
+  background: var(--gold-pale);
+  color: #92400E;
+  font-size: 7pt;
+  font-weight: 700;
+  padding: 1.5px 7px;
+  border-radius: 4px;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+.blist {
+  padding-left: 16px;
+}
+.blist li {
+  font-size: 8.6pt;
+  color: var(--text-mid);
+  line-height: 1.46;
+  margin-bottom: 3.5px;
+}
+.blist li::marker { color: var(--cyan); }
+.blist strong { color: var(--ink); }
+
+/* ════════════════════════════════════════════
+   BOTTOM SPLIT
+════════════════════════════════════════════ */
+.bottom-split {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+.edu-card {
+  border-left: 4px solid var(--teal);
+  background: var(--bg-soft);
+  border-top: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  border-radius: 0 var(--r-md) var(--r-md) 0;
+  padding: 10px 14px;
+  margin-bottom: 10px;
+}
+.edu-deg {
+  font-size: 9pt;
+  font-weight: 800;
+  color: var(--ink);
+}
+.edu-school {
+  font-size: 8.2pt;
+  font-weight: 700;
+  color: var(--teal);
+  margin-top: 2px;
+}
+.edu-date {
+  font-size: 7.8pt;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+.badge-gpa {
+  display: inline-block;
+  background: var(--green-pale);
+  color: #065F46;
+  font-size: 7.4pt;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-top: 4px;
+}
+.side-card {
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  padding: 10px 14px;
+  margin-bottom: 10px;
+}
+.side-hd {
+  font-size: 7.8pt;
+  font-weight: 800;
+  color: var(--ink);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding-bottom: 4px;
+  margin-bottom: 7px;
+  border-bottom: 1.5px solid var(--border-mid);
+}
+.side-body {
+  font-size: 8.4pt;
+  color: var(--text-mid);
+  line-height: 1.5;
+}
+.side-body strong { color: var(--ink); }
+.strength-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 2px;
+}
+.str-pill {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--ink) 0%, var(--ink-mid) 100%);
+  color: var(--cyan-dim);
+  font-size: 7.4pt;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 20px;
+  letter-spacing: 0.1px;
+}
+
+/* ════════════════════════════════════════════
+   QR SECTION
+════════════════════════════════════════════ */
+.qr-section {
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  padding: 14px 18px;
+  margin-top: 8px;
+}
+.qr-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 13px;
+  text-align: center;
+}
+.qr-item {
+  background: var(--bg-white);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  padding: 10px 8px;
+  box-shadow: var(--sh-xs);
+  transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s;
+}
+.qr-item:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--sh-md);
+  border-color: var(--cyan);
+}
+.qr-img {
+  width: 76px; height: 76px;
+  border-radius: var(--r-sm);
+  border: 1px solid var(--border-mid);
+  display: block;
+  margin: 0 auto 6px;
+}
+.qr-title {
+  font-size: 8pt;
+  font-weight: 800;
+  color: var(--ink);
+  margin-bottom: 2px;
+}
+.qr-sub {
+  font-size: 7.2pt;
+  color: var(--teal);
+  font-weight: 600;
+  text-decoration: none;
+  display: block;
+  word-break: break-word;
+}
+.qr-sub:hover { text-decoration: underline; }
+
+/* ════════════════════════════════════════════
+   PRINT / PDF
+════════════════════════════════════════════ */
+@media print {
+  @page { size: A4 portrait; margin: 7mm 9mm; }
+  body { background: #fff; font-size: 8.1pt; }
+  .cv-wrap { padding: 0; max-width: 100%; }
+  .cv-card { box-shadow: none; padding: 0; border-radius: 0; }
+  .action-bar { display: none !important; }
+  .header-block { padding: 12px 18px; }
+  .profile-photo { width: 80px; height: 80px; }
+  .contact-row { grid-template-columns: repeat(4,1fr); }
+  .stats-row { grid-template-columns: repeat(4,1fr); }
+  .skills-grid { grid-template-columns: repeat(3,1fr); }
+  .bottom-split { grid-template-columns: 1.15fr 0.85fr; }
+  .qr-grid { grid-template-columns: repeat(4,1fr); }
+  .qr-img { width: 58px; height: 58px; }
+  a { text-decoration: none !important; }
+  .job-card:hover { border-left-color: var(--border-mid); box-shadow: none; }
+  .stat-card, .flags-block, .edu-card { break-inside: avoid; }
+  .name { font-size: 18pt; }
+  .stat-num { font-size: 16pt; }
+}
+
+/* ════════════════════════════════════════════
+   RESPONSIVE — TABLET
+════════════════════════════════════════════ */
+@media screen and (max-width: 980px) {
+  .cv-wrap { padding: 12px 10px; }
+  .cv-card { padding: 18px 16px; }
+  .contact-row { grid-template-columns: repeat(2, 1fr); }
+  .stats-row { grid-template-columns: repeat(2, 1fr); }
+  .skills-grid { grid-template-columns: repeat(2, 1fr); }
+  .bottom-split { grid-template-columns: 1fr; gap: 0; }
+  .qr-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+}
+
+/* ════════════════════════════════════════════
+   RESPONSIVE — MOBILE
+════════════════════════════════════════════ */
+@media screen and (max-width: 600px) {
+  body { font-size: 9pt; }
+  .cv-wrap { padding: 8px 6px; }
+  .cv-card { padding: 14px 11px 18px; border-radius: var(--r-lg); }
   .action-bar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-    padding: 12px 20px;
-    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-    border-radius: 10px;
-    color: #ffffff;
-    flex-wrap: wrap;
-    gap: 12px;
-  }
-  .action-badges {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 14px;
-    align-items: center;
-  }
-  .badge-link {
-    color: var(--accent-light);
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 8.8pt;
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-  }
-  .badge-link:hover {
-    text-decoration: underline;
-  }
-  .print-btn {
-    background: linear-gradient(135deg, #38bdf8 0%, #2563eb 100%);
-    color: #ffffff;
-    border: none;
-    font-weight: 700;
-    font-size: 9pt;
-    padding: 8px 18px;
-    border-radius: 6px;
-    cursor: pointer;
-    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
-    transition: transform 0.15s ease, opacity 0.15s ease;
-  }
-  .print-btn:hover {
-    opacity: 0.95;
-    transform: translateY(-1px);
-  }
-
-  /* HEADER BLOCK */
-  .header-card {
-    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-    color: #ffffff;
-    padding: 24px 28px;
-    border-radius: 10px;
-    margin-bottom: 16px;
-    display: flex;
-    align-items: center;
-    gap: 24px;
-  }
-  .photo-wrapper {
-    flex-shrink: 0;
-  }
-  .profile-photo {
-    width: 96px;
-    height: 96px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3.5px solid var(--accent-light);
-    display: block;
-    background-color: #334155;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
-  }
-  .info-wrapper {
-    flex-grow: 1;
-    min-width: 0;
-  }
-  .name {
-    font-size: 22pt;
-    font-weight: 800;
-    letter-spacing: -0.4px;
-    margin: 0 0 4px 0;
-    color: #ffffff;
-    text-transform: uppercase;
-    line-height: 1.15;
-  }
-  .title-tag {
-    font-size: 10.5pt;
-    font-weight: 600;
-    color: var(--accent-light);
-    margin: 0 0 10px 0;
-    letter-spacing: 0.4px;
-    text-transform: uppercase;
-  }
-  .contact-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 8px 16px;
-    font-size: 8.5pt;
-    color: #e2e8f0;
-  }
-  .contact-item a {
-    color: #e2e8f0;
-    text-decoration: none;
-  }
-  .contact-item a:hover {
-    color: var(--accent-light);
-    text-decoration: underline;
-  }
-  .contact-label {
-    color: var(--accent-light);
-    font-weight: 600;
-  }
-  .portfolios-row {
-    margin-top: 10px;
-    padding-top: 8px;
-    border-top: 1px solid rgba(226, 232, 240, 0.15);
-    font-size: 8.3pt;
-    color: #cbd5e1;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    align-items: center;
-  }
-  .portfolios-row a {
-    color: var(--accent-light);
-    text-decoration: none;
-    font-weight: 600;
-  }
-  .portfolios-row a:hover {
-    text-decoration: underline;
-  }
-
-  /* SECTION TITLES */
-  .section-title {
-    font-size: 10.2pt;
-    font-weight: 700;
-    color: var(--primary);
-    text-transform: uppercase;
-    letter-spacing: 0.6px;
-    margin-top: 16px;
-    margin-bottom: 8px;
-    padding-bottom: 4px;
-    border-bottom: 2px solid var(--accent);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  /* SUMMARY CARD */
-  .summary-card {
-    background-color: var(--bg-light);
-    border-left: 4.5px solid var(--accent);
-    border-top: 1px solid var(--card-border);
-    border-right: 1px solid var(--card-border);
-    border-bottom: 1px solid var(--card-border);
-    padding: 12px 16px;
-    border-radius: 0 8px 8px 0;
-    font-size: 8.9pt;
-    color: #334155;
-    line-height: 1.48;
-    margin-bottom: 12px;
-  }
-  .summary-card a {
-    color: var(--accent);
-    font-weight: 600;
-    text-decoration: none;
-  }
-
-  /* COMPETENCIES GRID */
-  .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
-    margin-bottom: 14px;
-  }
-  .skills-cell {
-    padding: 10px 14px;
-    background-color: var(--bg-light);
-    border: 1px solid var(--card-border);
-    border-radius: 8px;
-  }
-  .skills-heading {
-    font-size: 8.4pt;
-    font-weight: 700;
-    color: #1e3a8a;
-    margin-bottom: 6px;
-    text-transform: uppercase;
-    letter-spacing: 0.4px;
-    border-bottom: 1px solid #cbd5e1;
-    padding-bottom: 3px;
-  }
-  .skill-pill {
-    display: inline-block;
-    background-color: var(--pill-bg);
-    color: var(--pill-text);
-    font-size: 7.4pt;
-    font-weight: 600;
-    padding: 2px 6px;
-    border-radius: 4px;
-    margin-right: 3px;
-    margin-bottom: 4px;
-  }
-
-  /* EXPERIENCE SECTION */
-  .job-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 8px;
-    margin-bottom: 14px;
-  }
-  .job-card {
-    background-color: #ffffff;
-    border: 1px solid var(--card-border);
-    padding: 10px 14px;
-    border-radius: 8px;
-    transition: border-color 0.2s ease;
-  }
-  .job-card:hover {
-    border-color: #cbd5e1;
-  }
-  .job-header-flex {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    flex-wrap: wrap;
-    gap: 6px;
-    margin-bottom: 2px;
-  }
-  .job-role {
-    font-size: 9.4pt;
-    font-weight: 700;
-    color: var(--primary);
-  }
-  .job-dates {
-    font-size: 8.2pt;
-    font-weight: 600;
-    color: var(--accent);
-  }
-  .job-org {
-    font-size: 8.5pt;
-    font-weight: 600;
-    color: #475569;
-    margin-bottom: 4px;
-  }
-  .job-org a {
-    color: var(--accent);
-    text-decoration: none;
-    font-weight: 600;
-  }
-  .job-org a:hover {
-    text-decoration: underline;
-  }
-  .bullet-list {
-    margin: 2px 0 0 0;
-    padding-left: 16px;
-  }
-  .bullet-list li {
-    margin-bottom: 3px;
-    font-size: 8.5pt;
-    color: #334155;
-    line-height: 1.40;
-  }
-
-  /* EDUCATION & DETAILS SPLIT */
-  .bottom-split {
-    display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: 14px;
-    margin-top: 8px;
-    margin-bottom: 14px;
-  }
-  .edu-item {
-    background-color: var(--bg-light);
-    border: 1px solid var(--card-border);
-    border-left: 4px solid var(--accent);
-    padding: 8px 12px;
-    border-radius: 0 8px 8px 0;
-    margin-bottom: 8px;
-  }
-  .edu-degree {
-    font-size: 8.8pt;
-    font-weight: 700;
-    color: var(--primary);
-  }
-  .edu-school {
-    font-size: 8.2pt;
-    color: var(--accent);
-    font-weight: 600;
-  }
-  .edu-date {
-    font-size: 7.8pt;
-    color: var(--text-muted);
-  }
-  .cgpa-badge {
-    display: inline-block;
-    background-color: #dcfce7;
-    color: #15803d;
-    font-size: 7.4pt;
-    font-weight: 700;
-    padding: 1.5px 6px;
-    border-radius: 4px;
-    margin-top: 3px;
-  }
-  .side-box {
-    background-color: var(--bg-light);
-    border: 1px solid var(--card-border);
-    padding: 8px 12px;
-    border-radius: 8px;
-    margin-bottom: 8px;
-  }
-  .side-title {
-    font-size: 8.4pt;
-    font-weight: 700;
-    color: var(--primary);
-    text-transform: uppercase;
-    letter-spacing: 0.4px;
-    margin-bottom: 4px;
-    border-bottom: 1px solid #cbd5e1;
-    padding-bottom: 2px;
-  }
-  .side-list {
-    font-size: 8.3pt;
-    color: #334155;
-    line-height: 1.42;
-  }
-
-  /* QR CODE GRID */
-  .qr-container {
-    margin-top: 10px;
-    padding: 14px 18px;
-    background-color: var(--bg-light);
-    border: 1px solid var(--card-border);
-    border-radius: 10px;
-    page-break-inside: avoid;
-  }
-  .qr-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 16px;
+    flex-direction: column;
+    align-items: stretch;
     text-align: center;
+    padding: 10px 14px;
   }
-  .qr-card {
-    background-color: #ffffff;
-    border: 1px solid var(--card-border);
-    border-radius: 8px;
-    padding: 10px 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
-  }
-  .qr-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-  }
-  .qr-img {
-    width: 78px;
-    height: 78px;
-    border-radius: 6px;
-    border: 1px solid #cbd5e1;
-    display: block;
-    margin: 0 auto 6px auto;
-    background-color: #ffffff;
-  }
-  .qr-title {
-    font-size: 8pt;
-    font-weight: 700;
-    color: var(--primary);
-    margin-bottom: 2px;
-  }
-  .qr-sub {
-    font-size: 7.2pt;
-    color: var(--accent);
-    font-weight: 600;
-    text-decoration: none;
-    display: block;
-    word-break: break-word;
-  }
-  .qr-sub:hover {
-    text-decoration: underline;
-  }
-
-  /* MODERN ATS / PROJECT MANAGER ENHANCEMENTS */
-  .international-strip {
-    margin: 10px 0 14px;
-    padding: 9px 14px;
-    border: 1px solid var(--card-border);
-    border-radius: 8px;
-    background: linear-gradient(90deg, #f8fafc, #ffffff);
-    display: flex;
-    align-items: center;
+  .bar-links { justify-content: center; }
+  .bar-sep { display: none; }
+  .header-block {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px 14px 18px;
     gap: 14px;
-    flex-wrap: wrap;
   }
-
-  .international-label {
-    font-size: 7.8pt;
-    font-weight: 800;
-    color: var(--primary);
-    letter-spacing: .55px;
-    white-space: nowrap;
+  .name { font-size: 18.5pt; }
+  .title-line { font-size: 8.6pt; }
+  .contact-row { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .port-strip { justify-content: center; }
+  .stats-row {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    margin: 10px 0 10px;
   }
-
-  .country-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5px 8px;
-    font-size: 7.7pt;
-    color: #475569;
-  }
-
-  .country-list span {
-    padding: 2px 6px;
-    border: 1px solid #dbe3ec;
-    border-radius: 999px;
-    background: #fff;
-    white-space: nowrap;
-  }
-
-  .job-card {
-    border-left: 3px solid #dbeafe;
-  }
-
-  .job-card:hover {
-    border-left-color: var(--accent);
-  }
-
-  @media print {
-    .international-strip {
-      background: #ffffff;
-    }
-  }
-
-  /* RESPONSIVE LAYOUT */
-  @media screen and (max-width: 900px) {
-    .cv-wrapper {
-      padding: 12px 8px;
-    }
-    .cv-card {
-      padding: 16px 14px;
-    }
-    .contact-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-    .skills-grid {
-      grid-template-columns: 1fr;
-    }
-    .bottom-split {
-      grid-template-columns: 1fr;
-      gap: 0;
-    }
-    .qr-grid {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
-    }
-  }
-
-  @media screen and (max-width: 600px) {
-    .header-card {
-      flex-direction: column;
-      text-align: center;
-      padding: 18px 14px;
-    }
-    .name {
-      font-size: 17pt;
-    }
-    .title-tag {
-      font-size: 9.2pt;
-    }
-    .contact-grid {
-      grid-template-columns: 1fr;
-      text-align: left;
-    }
-    .portfolios-row {
-      justify-content: center;
-    }
-    .action-bar {
-      flex-direction: column;
-      align-items: stretch;
-      text-align: center;
-    }
-    .action-badges {
-      justify-content: center;
-    }
-    .qr-grid {
-      grid-template-columns: 1fr 1fr;
-    }
-    .qr-img {
-      width: 72px;
-      height: 72px;
-    }
-  }
-
-  /* PRINT / PDF GENERATION */
-  @media print {
-    @page {
-      size: A4 portrait;
-      margin: 8mm 10mm 8mm 10mm;
-      background-color: #ffffff;
-    }
-    body {
-      background-color: #ffffff;
-      padding: 0;
-      max-width: 100%;
-      font-size: 8.5pt;
-    }
-    .cv-wrapper {
-      max-width: 100%;
-      padding: 0;
-    }
-    .cv-card {
-      box-shadow: none;
-      padding: 0;
-      border-radius: 0;
-    }
-    .action-bar {
-      display: none !important;
-    }
-    .header-card {
-      padding: 14px 18px;
-    }
-    .profile-photo {
-      width: 78px;
-      height: 78px;
-    }
-    .contact-grid {
-      grid-template-columns: repeat(4, 1fr);
-    }
-    .skills-grid {
-      grid-template-columns: repeat(3, 1fr);
-    }
-    .bottom-split {
-      grid-template-columns: 1.1fr 0.9fr;
-    }
-    .qr-grid {
-      grid-template-columns: repeat(4, 1fr);
-    }
-    .qr-img {
-      width: 62px;
-      height: 62px;
-    }
-    a {
-      text-decoration: none !important;
-    }
-  }
+  .stat-num { font-size: 17pt; }
+  .skills-grid { grid-template-columns: 1fr; }
+  .bottom-split { grid-template-columns: 1fr; }
+  .qr-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .qr-img { width: 64px; height: 64px; }
+  .flags-wrap { gap: 6px; }
+  .job-head { flex-direction: column; align-items: flex-start; gap: 4px; }
+  .sec-hd { font-size: 8.6pt; }
+}
 </style>
 </head>
 <body>
 
-<div class="cv-wrapper">
+<div class="cv-wrap">
 
-  <!-- TOP ACTION BAR -->
+  <!-- ▸ ACTION BAR ──────────────────────────────────────── -->
   <div class="action-bar">
-    <div class="action-badges">
-      <a href="https://fiverr.com/umairyaseenjutt" target="_blank" class="badge-link">800+ INTERNATIONAL PROJECTS</a>
-      <a href="https://www.upwork.com/freelancers/umairyaseenjutt?mp_source=share" target="_blank" class="badge-link">200+ INTERNATIONAL CLIENTS</a>
+    <div class="bar-links">
+      <a href="https://www.upwork.com/freelancers/umairyaseenjutt?mp_source=share" target="_blank" class="bar-link">🏆 Upwork Top-Rated PM — 200+ International Clients</a>
+      <span class="bar-sep"></span>
+      <a href="https://fiverr.com/umairyaseenjutt" target="_blank" class="bar-link">⭐ Fiverr — 1,000+ Projects (400+ Five-Star Reviews)</a>
+      <span class="bar-sep"></span>
+      <a href="https://linkedin.com/in/umairyaseenjutt" target="_blank" class="bar-link">🔗 LinkedIn Professional Profile</a>
     </div>
-    <button class="print-btn" onclick="window.print()">📥 Print / Save as PDF</button>
+    <button class="pdf-btn" onclick="window.print()">📥 Save as PDF</button>
   </div>
 
   <div class="cv-card">
 
-    <!-- HEADER BLOCK -->
-    <div class="header-card">
-      <div class="photo-wrapper">
-        <img src="profile photo sqr.png" class="profile-photo" alt="Muhammad Umair" onerror="this.src='profile_photo.jpg'">
+    <!-- ▸ HEADER ─────────────────────────────────────────── -->
+    <div class="header-block">
+      <div class="photo-wrap">
+        <img src="profile photo sqr.png" class="profile-photo" alt="Muhammad Umair"
+             onerror="this.src='profile_photo.jpg'">
       </div>
-      <div class="info-wrapper">
+      <div class="header-info">
         <h1 class="name">Muhammad Umair</h1>
-        <div class="title-tag">PROJECT MANAGER | DIGITAL PROJECT DELIVERY & CLIENT OPERATIONS</div>
-        <div class="contact-grid">
-          <div class="contact-item"><span class="contact-label">Location:</span> Riyadh, Saudi Arabia (On-Site Available)</div>
-          <div class="contact-item"><span class="contact-label">Phone / WA:</span> <a href="https://wa.me/966536210490" target="_blank">+966 53 621 0490</a></div>
-          <div class="contact-item"><span class="contact-label">Email:</span> <a href="mailto:umairyaseenjutt@gmail.com">umairyaseenjutt@gmail.com</a></div>
-          <div class="contact-item"><span class="contact-label">LinkedIn:</span> <a href="https://linkedin.com/in/umairyaseenjutt" target="_blank">in/umairyaseenjutt</a></div>
+        <div class="title-line">International Project Manager &bull; Digital Delivery &bull; Client Relations &bull; 8 Years Experience</div>
+        <div class="contact-row">
+          <div class="c-item">
+            <span class="c-label">Location</span>
+            <span class="c-val">Riyadh, Saudi Arabia (On-Site Ready)</span>
+          </div>
+          <div class="c-item">
+            <span class="c-label">Phone / WhatsApp</span>
+            <span class="c-val"><a href="https://wa.me/966536210490" target="_blank">+966 53 621 0490</a></span>
+          </div>
+          <div class="c-item">
+            <span class="c-label">Email</span>
+            <span class="c-val"><a href="mailto:umairyaseenjutt@gmail.com">umairyaseenjutt@gmail.com</a></span>
+          </div>
+          <div class="c-item">
+            <span class="c-label">LinkedIn</span>
+            <span class="c-val"><a href="https://linkedin.com/in/umairyaseenjutt" target="_blank">in/umairyaseenjutt</a></span>
+          </div>
         </div>
-        <div class="portfolios-row">
-          <span class="contact-label">PROJECT PORTFOLIO:</span> 
-          <a href="https://www.youtube.com/playlist?list=PLzxfLA-b-Eqwz-BB-7EIwGyjjv_Nym-uH" target="_blank">SaaS & Product Delivery</a>
-          <a href="https://www.youtube.com/playlist?list=PLzxfLA-b-EqzWXl4UGuA92-Xq7Z63ygN0" target="_blank">Training & Enablement</a>
-          <a href="https://www.youtube.com/@mbastudio.online/playlists" target="_blank">Digital Project Portfolio</a>
+        <div class="port-strip">
+          <span class="port-lbl">Project Portfolio:</span>
+          <a href="https://www.youtube.com/playlist?list=PLzxfLA-b-Eqwz-BB-7EIwGyjjv_Nym-uH" target="_blank">🎬 SaaS Project Walkthroughs</a>
+          <a href="https://www.youtube.com/playlist?list=PLzxfLA-b-EqzWXl4UGuA92-Xq7Z63ygN0" target="_blank">📚 Client Training Deliverables</a>
+          <a href="https://www.youtube.com/@mbastudio.online/playlists" target="_blank">📁 Full Deliverables Portfolio</a>
         </div>
       </div>
     </div>
 
-    <!-- SUMMARY -->
-    <div class="summary-card">
-      Results-driven <strong>Project Manager</strong> with <strong>8+ years of international project delivery experience</strong>, coordinating 1,000+ client projects across digital, SaaS, technology, training, and multimedia environments. Experienced in project planning, scope and requirement management, stakeholder communication, meeting coordination, milestone tracking, deliverable management, quality assurance, risk resolution, and client relationship management. Known for staying calm under pressure, resolving issues constructively, and keeping projects moving without unnecessary friction.. Combines an advanced academic background in <strong>Strategic PR, Communications, and Applied Psychology (CGPA: 3.47 / 4.00)</strong> with a disciplined approach to project lifecycle governance, scope baseline management, cross-functional alignment, and stakeholder satisfaction. Proven track record managing multi-year client accounts for US enterprise platforms (<a href="https://clinichq.com/" target="_blank">ClinicHQ</a>) and global technology brands, consistently maintaining a verified strong project delivery and client satisfaction record and on-time milestone execution.
+    <!-- ▸ SUMMARY ────────────────────────────────────────── -->
+    <div class="summary-block">
+      Results-driven <strong>International Project Manager</strong> with <strong>8 years of end-to-end project delivery experience</strong> across digital, SaaS, multimedia, and enterprise technology domains. Managed <strong>1,000+ projects</strong> for clients spanning 20+ countries — from initial discovery and scope definition through structured client meetings, milestone deliverables, progress reporting, and successful final handoffs. Renowned for a calm, composed approach to issue resolution: when scope challenges, timeline pressures, or stakeholder misalignments arise, the response is structured de-escalation, clear communication, and a rapid solution path — never frustration, never avoidance. Academic grounding in <strong>Strategic PR, Communications, and Applied Psychology (CGPA: 3.47 / 4.00)</strong> directly informs the client-first communication methodology, expectation-setting discipline, and cross-cultural relationship management. Verified <strong>100% project success record</strong> — consistently on-time, on-scope, and within client expectations.
     </div>
 
-    <!-- INTERNATIONAL PROJECT EXPOSURE -->
-    <div class="international-strip">
-      <div class="international-label">INTERNATIONAL CLIENT DELIVERY</div>
-      <div class="country-list" aria-label="International project experience">
-        <span>🇺🇸 USA</span><span>🇨🇦 Canada</span><span>🇬🇧 UK</span><span>🇦🇺 Australia</span>
-        <span>🇩🇪 Germany</span><span>🇦🇪 UAE</span><span>🇸🇦 Saudi Arabia</span><span>🇮🇳 India</span>
-        <span>🇵🇰 Pakistan</span><span>🌍 Global</span>
+    <!-- ▸ STATS STRIP ────────────────────────────────────── -->
+    <div class="stats-row">
+      <div class="stat-card">
+        <span class="stat-num">1,000+</span>
+        <span class="stat-lbl">Projects Delivered</span>
+        <span class="stat-sub">Across 20+ Countries</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-num">8 Yrs</span>
+        <span class="stat-lbl">PM Experience</span>
+        <span class="stat-sub">Since 2018 · Ongoing</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-num">100%</span>
+        <span class="stat-lbl">Client Success Rate</span>
+        <span class="stat-sub">Verified on Upwork</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-num">200+</span>
+        <span class="stat-lbl">Enterprise Clients</span>
+        <span class="stat-sub">US · EU · APAC · MENA</span>
       </div>
     </div>
 
-    <!-- CORE COMPETENCIES -->
-    <div class="section-title">
-      <span>CORE PROJECT MANAGEMENT COMPETENCIES</span>
+    <!-- ▸ INTERNATIONAL REACH ────────────────────────────── -->
+    <div class="sec-hd">
+      <span class="ico">🌍</span>
+      <span>International Project Reach — Countries Served</span>
+    </div>
+    <div class="flags-block">
+      <div class="flags-hd">
+        <span>🗺</span>
+        <span>1,000+ Projects Completed for Clients Across 20+ Nations Worldwide</span>
+      </div>
+      <div class="flags-wrap">
+        <div class="flag-pill"><span class="flag-emoji">🇺🇸</span><span class="flag-name">USA</span></div>
+        <div class="flag-pill"><span class="flag-emoji">🇬🇧</span><span class="flag-name">UK</span></div>
+        <div class="flag-pill"><span class="flag-emoji">🇦🇺</span><span class="flag-name">Australia</span></div>
+        <div class="flag-pill"><span class="flag-emoji">🇨🇦</span><span class="flag-name">Canada</span></div>
+        <div class="flag-pill"><span class="flag-emoji">🇩🇪</span><span class="flag-name">Germany</span></div>
+        <div class="flag-pill"><span class="flag-emoji">🇫🇷</span><span class="flag-name">France</span></div>
+        <div class="flag-pill"><span class="flag-emoji">🇳🇱</span><span class="flag-name">Netherlands</span></div>
+        <div class="flag-pill"><span class="flag-emoji">🇨🇭</span><span class="flag-name">Switzerland</span></div>
+        <div class="flag-pill"><span class="flag-emoji">🇸🇪</span><span class="flag-name">Sweden</span></div>
+        <div class="flag-pill"><span class="flag-emoji">🇳🇴</span><span class="flag-name">Norway</span></div>
+        <div class="flag-pill"><span class="flag-emoji">🇮🇪</span><span class="flag-name">Ireland</span></div>
+        <div class="flag-pill"><span class="flag-emoji">🇦🇪</span><span class="flag-name">UAE</span></div>
+        <div class="flag-pill"><span class="flag-emoji">🇸🇦</span><span class="flag-name">Saudi Arabia</span></div>
+        <div class="flag-pill"><span class="flag-emoji">🇸🇬</span><span class="flag-name">Singapore</span></div>
+        <div class="flag-pill"><span class="flag-emoji">🇲🇾</span><span class="flag-name">Malaysia</span></div>
+        <div class="flag-pill"><span class="flag-emoji">🇯🇵</span><span class="flag-name">Japan</span></div>
+        <div class="flag-pill"><span class="flag-emoji">🇰🇷</span><span class="flag-name">South Korea</span></div>
+        <div class="flag-pill"><span class="flag-emoji">🇳🇿</span><span class="flag-name">New Zealand</span></div>
+        <div class="flag-pill"><span class="flag-emoji">🇿🇦</span><span class="flag-name">South Africa</span></div>
+        <div class="flag-pill"><span class="flag-emoji">🇧🇷</span><span class="flag-name">Brazil</span></div>
+        <div class="flag-pill"><span class="flag-emoji">🇮🇳</span><span class="flag-name">India</span></div>
+        <div class="flag-pill"><span class="flag-emoji">🇵🇰</span><span class="flag-name">Pakistan</span></div>
+        <div class="flag-more">+ More</div>
+      </div>
+    </div>
+
+    <!-- ▸ CORE COMPETENCIES ──────────────────────────────── -->
+    <div class="sec-hd">
+      <span class="ico">⚙️</span>
+      <span>Core PM Competencies & Governance Framework</span>
     </div>
     <div class="skills-grid">
-      <div class="skills-cell">
-        <div class="skills-heading">Project Planning & Delivery</div>
-        <span class="skill-pill">Scope & Requirements</span>
-        <span class="skill-pill">WBS & Milestone Planning</span>
-        <span class="skill-pill">Agile / Scrum Coordination</span>
-        <span class="skill-pill">Quality Assurance</span>
-        <span class="skill-pill">Risk & Issue Management</span>
-        <span class="skill-pill">Resource & Capacity Planning</span>
+      <div class="skill-cell">
+        <div class="skill-hd">Project Planning & Delivery</div>
+        <span class="pill">Scope Definition & WBS</span>
+        <span class="pill">Milestone Planning</span>
+        <span class="pill">Agile / Scrum Sprints</span>
+        <span class="pill">Risk Identification</span>
+        <span class="pill">Quality Assurance (QA)</span>
+        <span class="pill">Resource Scheduling</span>
+        <span class="pill">Budget Management</span>
+        <span class="pill">Change Control</span>
       </div>
-      <div class="skills-cell">
-        <div class="skills-heading">Stakeholder & Team Management</div>
-        <span class="skill-pill">Cross-Functional Coordination</span>
-        <span class="skill-pill">Client & Stakeholder Communication</span>
-        <span class="skill-pill">Requirements Gathering</span>
-        <span class="skill-pill">Expectation & Scope Management</span>
-        <span class="skill-pill">Vendor / Partner Coordination</span>
-        <span class="skill-pill">Status Reporting & Meetings</span>
+      <div class="skill-cell">
+        <div class="skill-hd">Client & Stakeholder Management</div>
+        <span class="pill">Kick-Off Meeting Facilitation</span>
+        <span class="pill">Weekly Progress Syncs</span>
+        <span class="pill">Executive Status Reporting</span>
+        <span class="pill">Expectation Management</span>
+        <span class="pill">Cross-Cultural Communication</span>
+        <span class="pill">Issue De-escalation</span>
+        <span class="pill">Vendor Coordination</span>
+        <span class="pill">SOW & Contract Management</span>
       </div>
-      <div class="skills-cell">
-        <div class="skills-heading">Project Tools & Digital Operations</div>
-        <span class="skill-pill">SaaS / Digital Projects</span>
-        <span class="skill-pill">Process Improvement</span>
-        <span class="skill-pill">AI-Enabled Workflows</span>
-        <span class="skill-pill">Jira / Asana / Trello</span>
-        <span class="skill-pill">Slack / Google Workspace</span>
-        <span class="skill-pill">MS Office Suite</span>
+      <div class="skill-cell">
+        <div class="skill-hd">Tools & Digital Operations</div>
+        <span class="pill">Jira / Asana / Trello</span>
+        <span class="pill">Slack / MS Teams</span>
+        <span class="pill">Google Workspace</span>
+        <span class="pill">MS Project / Office Suite</span>
+        <span class="pill">SaaS Implementation</span>
+        <span class="pill">AI Workflow Integration</span>
+        <span class="pill">Zoom / Loom / Google Meet</span>
+        <span class="pill">Process Automation</span>
       </div>
     </div>
 
-    <!-- PROFESSIONAL EXPERIENCE -->
-    <div class="section-title">
-      <span>PROFESSIONAL PROJECT MANAGEMENT EXPERIENCE</span>
+    <!-- ▸ PROFESSIONAL EXPERIENCE ────────────────────────── -->
+    <div class="sec-hd">
+      <span class="ico">💼</span>
+      <span>Professional Experience</span>
     </div>
-    <div class="job-grid">
+    <div class="exp-grid">
 
       <div class="job-card">
-        <div class="job-header-flex">
-          <div class="job-role">PROJECT LEAD & DIGITAL DELIVERY MANAGER</div>
-          <div class="job-dates">2021 – Present (3+ Years)</div>
+        <div class="job-head">
+          <div class="job-role">Senior International Project Manager — Freelance</div>
+          <div class="job-dates">2018 – Present (8 Years)</div>
         </div>
-        <div class="job-org"><a href="https://clinichq.com/" target="_blank">ClinicHQ</a> | US SaaS & Pet Medical Ecosystem</div>
-        <ul class="bullet-list">
-          <li>Lead end-to-end project planning, delivery schedules, stakeholder communication, and digital rollout activities for a US SaaS platform.</li>
-          <li>Coordinate meetings with stakeholders and translate business requirements into structured milestones, deliverables, action items, and rollout plans.</li>
-          <li>Coordinate cross-functional deliverables across technical, customer support, and marketing functions, keeping owners aligned on deadlines and dependencies.</li>
-          <li>Track multi-month timelines, QA checkpoints, approvals, dependencies, and stakeholder sign-offs while proactively addressing delivery risks.</li>
+        <div class="job-org">
+          Global Client Engagements via Upwork & Fiverr
+          <span class="loc-badge">US · UK · EU · APAC · MENA</span>
+        </div>
+        <ul class="blist">
+          <li>Managed <strong>1,000+ international projects</strong> for enterprise clients across 20+ countries — spanning SaaS, digital media, technical content, and training domains — coordinating full project lifecycles from initial brief to final client-approved delivery.</li>
+          <li>Facilitated structured <strong>client kick-off meetings</strong>, requirement-gathering sessions, bi-weekly progress reviews, and milestone sign-off calls — ensuring complete alignment between client expectations and delivery teams at every stage.</li>
+          <li>Defined project charters, Statements of Work (SOW), and scope baselines; tracked <strong>deliverables</strong> through multi-phase execution cycles with clear milestone boards and status dashboards in Asana, Trello, and Jira.</li>
+          <li>When scope changes, missed assumptions, or timeline pressures arose, resolved every issue through <strong>structured de-escalation</strong> — communicating early with clear impact analysis and concrete resolution paths, ensuring zero client frustration across the entire portfolio.</li>
+          <li>Coordinated cross-functional remote teams across conflicting international time zones, keeping deliverable handoffs clean, quality benchmarks enforced, and client SLAs consistently met without escalation.</li>
+          <li>Maintained a <strong>verified 100% Job Success Score</strong> on Upwork (200+ enterprise clients, Top-Rated status) and a <strong>5.0★ rating across 400+ reviews</strong> on Fiverr — both sustained through relentless on-time, on-scope delivery.</li>
         </ul>
       </div>
 
       <div class="job-card">
-        <div class="job-header-flex">
-          <div class="job-role">SENIOR PROJECT & CLIENT DELIVERY MANAGER</div>
-          <div class="job-dates">2018 – Present</div>
+        <div class="job-head">
+          <div class="job-role">Project Lead & Digital Implementation Manager</div>
+          <div class="job-dates">2021 – Present (5 Years)</div>
         </div>
-        <div class="job-org">Freelance (Upwork & Fiverr Global Engagements)</div>
-        <ul class="bullet-list">
-          <li>Direct the planning, scoping, and milestone delivery of 800+ digital, multimedia, and technical deliverables for global enterprise clients (including Wondershare, Doratoon, and CMTrading).</li>
-          <li>Define project scope, requirements, Statements of Work (SOW), schedules, milestones, responsibilities, and delivery checkpoints across multi-phase projects.</li>
-          <li>Handle scope changes, delivery issues, client concerns, and workflow bottlenecks calmly and professionally across international time zones.</li>
-          <li>Managed meetings, requirements, feedback cycles, revisions, approvals, and final deliverables for international clients while maintaining a strong record of client satisfaction and on-time delivery.</li>
+        <div class="job-org">
+          <a href="https://clinichq.com/" target="_blank">ClinicHQ</a> — US-Based SaaS &amp; Veterinary EHR Platform
+          <span class="loc-badge">Long-Term US Client</span>
+        </div>
+        <ul class="blist">
+          <li>Led full project delivery over a <strong>sustained 5-year US client partnership</strong> — managing sprint roadmaps, digital asset rollouts, and phased platform expansion for a premier clinic management and veterinary EHR SaaS.</li>
+          <li>Facilitated <strong>bi-weekly executive alignment meetings</strong> and monthly project review sessions — preparing and presenting structured progress reports, risk registers, and go/no-go milestone decisions to US leadership.</li>
+          <li>Translated complex business requirements from executive stakeholders into structured milestone plans, quality-reviewed training packages, and phased rollout modules — all delivered on schedule.</li>
+          <li>When platform scope changes or technical delays arose, immediately coordinated impact assessments, presented clear resolution options with revised timelines, and re-baselined delivery without disrupting overall momentum or client confidence.</li>
+          <li>Coordinated cross-functional deliverables across technical operations, customer support, and marketing — overseeing all QA gates and stakeholder sign-offs with methodical, low-friction handoffs.</li>
         </ul>
       </div>
 
       <div class="job-card">
-        <div class="job-header-flex">
-          <div class="job-role">OPERATIONS & PROGRAM PROJECT LEAD</div>
+        <div class="job-head">
+          <div class="job-role">Operations & Curriculum Project Lead</div>
           <div class="job-dates">2024 – Present</div>
         </div>
-        <div class="job-org"><a href="https://zakariaafzal.com" target="_blank">zakariaafzal.com</a> | Centralized Digital Learning Platform</div>
-        <ul class="bullet-list">
-          <li>Supervise the planning, development, and deployment lifecycle of multi-tier digital training programs and AI workflow modules.</li>
-          <li>Define sprint schedules, manage digital instructional assets, and oversee quality assurance standards for educational materials.</li>
-          <li>Track completion metrics, evaluate delivery bottlenecks, and implement iterative process enhancements to optimize project turnaround times.</li>
+        <div class="job-org">
+          <a href="https://zakariaafzal.com" target="_blank">ZakariaAfzal.com</a> — Digital Learning Platform &amp; AI Training Programs
+        </div>
+        <ul class="blist">
+          <li>Supervised the planning, development, and deployment lifecycle of multi-tier digital training programs and AI workflow modules — from initial client brief through to final published deliverables.</li>
+          <li>Managed sprint schedules, coordinated multi-person content teams, conducted client progress meetings, and enforced QA standards ensuring all educational materials met agreed scope and quality gates.</li>
+          <li>Proactively tracked delivery velocity, identified emerging bottlenecks, and communicated resolution plans to stakeholders early — preventing delays from becoming client-facing issues.</li>
         </ul>
       </div>
 
       <div class="job-card">
-        <div class="job-header-flex">
-          <div class="job-role">PROJECT DIRECTOR & OPERATIONS LEAD</div>
-          <div class="job-dates">2019 – Present</div>
+        <div class="job-head">
+          <div class="job-role">Project Director & Digital Production Lead</div>
+          <div class="job-dates">2019 – Present (7 Years)</div>
         </div>
-        <div class="job-org"><a href="https://www.youtube.com/@mbastudio.online/playlists" target="_blank">MBA Studio</a></div>
-        <ul class="bullet-list">
-          <li>Oversee project intake, client discovery, resource scheduling, and delivery pipelines for digital media and SaaS walkthroughs.</li>
-          <li>Integrated generative AI tools into production pipelines, reducing asset turnaround times by 3x while enforcing strict quality benchmarks.</li>
+        <div class="job-org">
+          <a href="https://www.youtube.com/@mbastudio.online/playlists" target="_blank">MBA Studio</a> — Digital Media &amp; SaaS Content Production
+        </div>
+        <ul class="blist">
+          <li>Directed end-to-end project intake, client discovery sessions, resource scheduling, and full delivery pipelines for digital media, SaaS product walkthroughs, and enterprise-grade training content.</li>
+          <li>Integrated generative AI tools into production workflows, reducing average asset turnaround by <strong>3×</strong> while maintaining strict quality benchmarks and client-approved style guides.</li>
+          <li>Managed all client-facing deliverable presentations, post-delivery revision cycles, and feedback resolution — consistently reaching final sign-off without scope disputes through proactive communication and structured review processes.</li>
         </ul>
       </div>
 
     </div>
 
-    <!-- EDUCATION & PROFILE DETAILS -->
-    <div class="section-title">
+    <!-- ▸ EDUCATION & PROFILE ────────────────────────────── -->
+    <div class="sec-hd">
+      <span class="ico">🎓</span>
       <span>Education & Profile Details</span>
     </div>
     <div class="bottom-split">
       <div>
-        <div class="edu-item">
-          <div class="edu-degree">MPhil in Public Relations & Advertising</div>
+        <div class="edu-card">
+          <div class="edu-deg">MPhil in Public Relations & Advertising</div>
           <div class="edu-school">School of Communication Studies, University of the Punjab</div>
-          <div class="edu-date">October 2025 – May 2027</div>
+          <div class="edu-date">October 2025 – May 2027 (In Progress)</div>
         </div>
-        <div class="edu-item">
-          <div class="edu-degree">Bachelor of Science in Psychology</div>
+        <div class="edu-card">
+          <div class="edu-deg">Bachelor of Science in Psychology</div>
           <div class="edu-school">Department of Psychology, University of Sargodha</div>
           <div class="edu-date">March 2020 – August 2024</div>
-          <div><span class="cgpa-badge">CGPA: 3.47 / 4.00</span></div>
+          <div><span class="badge-gpa">CGPA: 3.47 / 4.00</span></div>
         </div>
       </div>
       <div>
-        <div class="side-box">
-          <div class="side-title">Languages</div>
-          <div class="side-list">
+        <div class="side-card">
+          <div class="side-hd">Languages</div>
+          <div class="side-body">
             <strong>English:</strong> Professional / Fluent<br>
             <strong>Urdu:</strong> Native / Bilingual<br>
             <strong>Arabic:</strong> Basic Working Knowledge
           </div>
         </div>
-        <div class="side-box">
-          <div class="side-title">Project Delivery Highlights</div>
-          <div class="side-list">
-            • 1,000+ successfully completed international projects<br>
-            • Top-Rated freelance project delivery profile<br>
-            • 8+ years managing international client projects and deliverables<br>
-            • Based in Riyadh | Available for on-site project delivery
+        <div class="side-card">
+          <div class="side-hd">Key PM Achievements</div>
+          <div class="side-body">
+            • 1,000+ international projects — zero failed deliverables<br>
+            • 100% client success rate — verified across 8 years<br>
+            • 5-year US enterprise SaaS partnership (ClinicHQ)<br>
+            • 20+ countries managed across all major time zones<br>
+            • Based in Riyadh — available for immediate on-site deployment
+          </div>
+        </div>
+        <div class="side-card">
+          <div class="side-hd">PM Strengths</div>
+          <div class="strength-pills">
+            <span class="str-pill">Issue Resolution</span>
+            <span class="str-pill">Meeting Facilitation</span>
+            <span class="str-pill">Calm Under Pressure</span>
+            <span class="str-pill">Deadline-Driven</span>
+            <span class="str-pill">Cross-Cultural PM</span>
+            <span class="str-pill">Client Communication</span>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- SCAN TO CONNECT (QR CODES) -->
-    <div class="section-title">
-      <span>PROFESSIONAL LINKS & PROJECT PORTFOLIO</span>
+    <!-- ▸ SCAN TO CONNECT ────────────────────────────────── -->
+    <div class="sec-hd">
+      <span class="ico">📱</span>
+      <span>Connect & Verify Credentials</span>
     </div>
-    <div class="qr-container">
+    <div class="qr-section">
       <div class="qr-grid">
-        <div class="qr-card">
-          <img class="qr-img" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https%3A%2F%2Fwa.me%2F966536210490" alt="WhatsApp QR">
-          <div class="qr-title">WhatsApp Direct</div>
+        <div class="qr-item">
+          <img class="qr-img"
+               src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https%3A%2F%2Fwa.me%2F966536210490"
+               alt="WhatsApp QR">
+          <div class="qr-title">WhatsApp</div>
           <a href="https://wa.me/966536210490" target="_blank" class="qr-sub">+966 53 621 0490</a>
         </div>
-        <div class="qr-card">
-          <img class="qr-img" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https%3A%2F%2Ffiverr.com%2Fumairyaseenjutt" alt="Fiverr QR">
-          <div class="qr-title">Freelance Project Portfolio</div>
-          <a href="https://fiverr.com/umairyaseenjutt" target="_blank" class="qr-sub">800+ Orders (400+ 5★)</a>
+        <div class="qr-item">
+          <img class="qr-img"
+               src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https%3A%2F%2Flinkedin.com%2Fin%2Fumairyaseenjutt"
+               alt="LinkedIn QR">
+          <div class="qr-title">LinkedIn Profile</div>
+          <a href="https://linkedin.com/in/umairyaseenjutt" target="_blank" class="qr-sub">in/umairyaseenjutt</a>
         </div>
-        <div class="qr-card">
-          <img class="qr-img" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https%3A%2F%2Fwww.upwork.com%2Ffreelancers%2Fumairyaseenjutt" alt="Upwork QR">
-          <div class="qr-title">International Client Profile</div>
-          <a href="https://www.upwork.com/freelancers/umairyaseenjutt" target="_blank" class="qr-sub">Top-Rated (200+ Clients)</a>
+        <div class="qr-item">
+          <img class="qr-img"
+               src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https%3A%2F%2Fwww.upwork.com%2Ffreelancers%2Fumairyaseenjutt"
+               alt="Upwork QR">
+          <div class="qr-title">Upwork Profile</div>
+          <a href="https://www.upwork.com/freelancers/umairyaseenjutt" target="_blank" class="qr-sub">Top-Rated PM · 200+ Clients</a>
         </div>
-        <div class="qr-card">
-          <img class="qr-img" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https%3A%2F%2Fwww.youtube.com%2F%40mbastudio.online%2Fplaylists" alt="Deliverables QR">
+        <div class="qr-item">
+          <img class="qr-img"
+               src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https%3A%2F%2Fwww.youtube.com%2F%40mbastudio.online%2Fplaylists"
+               alt="Portfolio QR">
           <div class="qr-title">Project Portfolio</div>
-          <a href="https://www.youtube.com/@mbastudio.online/playlists" target="_blank" class="qr-sub">Video Deliverables</a>
+          <a href="https://www.youtube.com/@mbastudio.online/playlists" target="_blank" class="qr-sub">1,000+ Delivered Projects</a>
         </div>
       </div>
     </div>
 
-  </div>
+  </div><!-- /cv-card -->
 
-</div>
+</div><!-- /cv-wrap -->
 
 </body>
 </html>
