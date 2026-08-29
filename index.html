@@ -49,7 +49,7 @@
     box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
   }
 
-  /* ON-SCREEN ACTION BAR */
+  /* TOP ACTION BAR */
   .action-bar {
     display: flex;
     justify-content: space-between;
@@ -489,7 +489,7 @@
     }
   }
 
-  /* PRINT / PDF GENERATION */
+  /* PRINT CONFIGURATION */
   @media print {
     @page {
       size: A4 portrait;
@@ -542,12 +542,25 @@
     }
   }
 </style>
+<script>
+  /* Automated DOM cleaner to strip citation tags completely on render */
+  document.addEventListener("DOMContentLoaded", function() {
+    function cleanNode(node) {
+      if (node.nodeType === Node.TEXT_NODE) {
+        node.nodeValue = node.nodeValue.replace(/\/gi, '');
+      } else if (node.nodeType === Node.ELEMENT_NODE && node.tagName !== 'SCRIPT' && node.tagName !== 'STYLE') {
+        node.childNodes.forEach(cleanNode);
+      }
+    }
+    cleanNode(document.body);
+  });
+</script>
 </head>
 <body>
 
 <div class="cv-wrapper">
 
-  <!-- TOP ACTION BAR -->
+  <!-- ACTION BAR -->
   <div class="action-bar">
     <div class="action-badges">
       <a href="https://fiverr.com/umairyaseenjutt" target="_blank" class="badge-link">⭐ Fiverr: 800+ Orders (400+ 5★)</a>
